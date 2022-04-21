@@ -1,25 +1,26 @@
-import Head from 'next/head';
 import Link from 'next/link';
-import styles from '../styles/Home.module.css';
+import { DarkLayout } from '../components/layouts/DarkLayout';
+import { MainLayout } from '../components/layouts/MainLayout';
 
-export const AboutPage = () => {
+const AboutPage = () => {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>About</title>
-        <meta name="description" content="About page" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Ir a <Link href='/'>Home</Link>
-        </h1>
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/about.js</code>
-        </p>
-      </main>
-    </div>
+    <>
+      <h1>About Page</h1>
+      <h1 className={'title'}>
+        Ir a <Link href="/">Home</Link>
+      </h1>
+      <p className={'description'}>
+        Get started by editing <code className={'code'}>pages/about.js</code>
+      </p>
+    </>
+  );
+};
+
+AboutPage.getLayout = function getLayout(page) {
+  return (
+    <MainLayout>
+      <DarkLayout>{page}</DarkLayout>
+    </MainLayout>
   );
 };
 
